@@ -20,10 +20,14 @@ public class EmployeeAspect {
     Pointcut expression ==> "execution(* com.dgmf.controller.EmployeeController.*(..))"
     Join point ==> the place where the Pointcut will be executed
      */
-    @Before(value = "execution(* com.dgmf.controller.EmployeeController.*(..))")
-    public void beforeAdvice(JoinPoint joinPoint) {
-        System.out.println("Request to " + joinPoint.getSignature() +
-                " started at : " + new Date());
-    }
 
+    // Advice ==> the entire Method
+    // Pointcut Expression ==> the Annotation that links Advice to Joint Point
+    // Pointcut Designator (PCD) ==> "execution"
+    @Before(value = "execution(* com.dgmf.controller.EmployeeController.*(..))")
+    public void beforeAdvice(JoinPoint joinPoint) { // JoinPoint ==> Positions
+        // where the Advice will be applied
+        System.out.println("Request to " + "\"" + joinPoint.getSignature() +
+                "\"" + " started at : " + new Date());
+    }
 }
